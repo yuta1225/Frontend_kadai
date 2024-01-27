@@ -1,0 +1,161 @@
+<!-- 株式会社南国ソフト様 プログラミング課題2 芝浦工業大学2年 半田優太 -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nangoku Task2</title>
+
+    <style>
+        body {
+            width: 700px;
+            margin: 0 auto;
+        }
+        .container {
+            margin: 20px 10px;
+        }
+        h1 {
+            font-size: 25px;
+            color:rgb(107, 106, 106);
+        }
+        .title {
+            display: block;
+            color:rgb(107, 106, 106);
+            margin-top: 5px;
+        }
+        p {
+            font-size: 20px;
+            color: rgb(107, 106, 106);
+        }
+        input {
+            width: 200px;
+            padding: 5px 15px;
+            border-radius: 2px;
+            font-size: 20px;
+            border: 2px solid #ddd;
+        }
+        input:focus {
+            border: 2px solid #ff9900;
+            z-index: 10;
+            outline: 0;
+        }
+        ::placeholder {
+            color: #ddd;
+        }
+        #btn {
+            display: block;
+            margin-top: 30px;
+            padding: 7px 15px;
+            background-color: rgb(21, 9, 184);
+            border: none;
+            color: #fff;
+            border-bottom: 5px solid rgb(14, 6, 122);
+            border-radius: 5px;
+        }
+        #btn:hover {
+            opacity: 0.8;
+            margin-top: 32px;
+            border-bottom: 3px solid rgb(14, 6, 122);
+        }
+        #answer {
+            font-size: 25px;
+            color: rgb(107, 106, 106);
+        }
+        span {
+            color: black;
+        }
+
+        /* レスポンシブデザイン */
+        @media screen and (max-width: 480px) {
+            .container {
+                margin: 20px 5px;
+            }
+            h1 {
+                font-size: 17px;
+            }
+            .title {
+                display: block;
+                font-size: 17px;
+            }
+            p {
+                font-size: 15px;
+            }
+            input {
+                padding: 5px 15px;
+                border-radius: 2px;
+                font-size: 15px;
+                border: 2px solid #ddd;
+            }
+            #answer {
+                font-size: 17px;
+                color: rgb(107, 106, 106);
+            }
+            #btn {
+                display: block;
+                margin-top: 20px;
+                padding: 7px 15px;
+                background-color: rgb(21, 9, 184);
+                border: none;
+                color: #fff;
+                border-bottom: 5px solid rgb(14, 6, 122);
+                border-radius: 5px;
+            }
+            #btn:hover {
+                margin-top: 22px;
+                opacity: 0.8;
+                border-bottom: 3px solid rgb(14, 6, 122);
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="concept">
+            <h1>座標(x, y)を原点(0, 0)から角度(θ)を<span class="title" >回した回転後の座標(x‘,y’)を表示します</span></h1>
+        </div>
+        <form action="#" id="form">
+            <div class="grid-before">
+                <div class="x">
+                    <p>x座標を入力してください</p>
+                    <input type="text" placeholder="x座標" id="x-grid">　
+                </div>
+                <div class="y">
+                    <p>y座標を入力してください</p>
+                    <input type="text" placeholder="y座標" id="y-grid">
+                </div>
+                <div class="θ">
+                    <p>回転する角度(θ)を度数法で入力してください</p>
+                    <input type="text" placeholder="角度(θ)" id="θ-grid">
+                </div>
+                <div class="grid-after">
+                    <input type="submit" id="btn" value="答えを表示">
+                    <p id="answer">回転後の座標(x‘, y’)は「 <span id="output"></span> 」です</p>
+                    <p>✳︎小数点第３位以下は四捨五入しています</p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 分かりやすくするために回転前の座標と回転する角度を入力したら回転後の座標が表示されるように関数rotate()を作成しました。
+        document.getElementById('form').onsubmit = function rotate(event) {
+            event.preventDefault();
+            const x = document.getElementById('x-grid').value;
+            const y = document.getElementById('y-grid').value;
+            const θ = document.getElementById('θ-grid').value * (Math.PI / 180); //ラジアンに変換。
+            
+            //　回転後の座標(a, b)を求める。
+            var a = Math.cos(θ) * x - Math.sin(θ) * y;
+            var b = Math.sin(θ) * x + Math.cos(θ) * y;
+
+            // 丸め誤差により誤差が生じるため、小数点第2位以下を四捨五入する。
+            a = Math.round(10 * a) / 10;
+            b = Math.round(10 * b) / 10;
+            document.getElementById('output').textContent = `(${a}, ${b})`;
+        }
+    </script>
+
+</body>
+</html>

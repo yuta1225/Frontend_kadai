@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator02.css">
+    <title>Nangoku Task1</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">
+            <h1>電卓</h1>
+        </div>
+        <div class="calculator">
+            <div class="calculation">
+                <input id="result" value="">
+            </div>      
+            <div class="row">
+                <div class="first-row">
+                    <input id="btn" value="AC" onclick="del()" type="button">
+                    <input id="btn" value="C" onclick="cle()" type="button">
+                    <input value="%" onclick="operate(this)" type="button">
+                    <input value="÷" onclick="operate(this)" type="button">
+                </div>
+                <div class="second-row">
+                    <input value="7" onclick="display(this)" type="button">
+                    <input value="8" onclick="display(this)" type="button">
+                    <input value="9" onclick="display(this)" type="button">
+                    <input value="×" onclick="operate(this)" type="button">
+                </div>
+                <div class="third-row">
+                    <input value="4" onclick="display(this)" type="button">
+                    <input value="5" onclick="display(this)" type="button">
+                    <input value="6" onclick="display(this)" type="button">
+                    <input value="−" onclick="operate(this)" type="button">
+                </div>
+                <div class="fourth-row">
+                    <input value="1" onclick="display(this)" type="button">
+                    <input value="2" onclick="display(this)" type="button">
+                    <input value="3" onclick="display(this)" type="button">
+                    <input value="＋" onclick="operate(this)" type="button">
+                </div>
+                <div class="fifth-row">
+                    <input id="large-btn" value="0" onclick="display(this)" type="button">
+                    <input value="." onclick="demical(this)" type="button">
+                    <input value="=" onclick="calculate(this)" type="button">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="calculator02.js"></script>
+</body>
+</html>

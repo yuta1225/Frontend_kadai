@@ -1,0 +1,53 @@
+.container {
+    margin: 0 auto;
+    width: 290px;
+    height: 400px;
+    padding: 20px 5px;
+    background-color: rgb(241, 239, 239);
+}
+.main-title {
+    text-align: center;
+}
+/* 入力バーに関するCSS */
+#result {
+    width: 274px;
+    margin-left: 7px;
+    border: solid 1px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-align: right;
+    padding: 5px 0 5px 0;
+    font-size: 25px;
+}
+/* ボタンに関するCSS */
+input {
+    display: inline-block;
+    height: 40px;
+    width: 50px;
+    width: 20%;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+#large-btn {
+    width: 45%;
+}
+.first-row {
+    display: flex;
+    justify-content: space-around;
+}
+.second-row {
+    display: flex;
+    justify-content: space-around;
+}
+.third-row {
+    display: flex;
+    justify-content: space-around;
+}
+.fourth-row {
+    display: flex;
+    justify-content: space-around;
+}
+.fifth-row {
+    display: flex;
+    justify-content: space-around;
+}

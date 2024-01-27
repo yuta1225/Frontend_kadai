@@ -1,0 +1,119 @@
+<!-- 株式会社南国ソフト様 プログラミング課題1 芝浦工業大学2年 半田優太 -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Nangoku Task1</title>
+
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 300px;
+            height: 400px;
+            padding: 30px 0;
+            background-color: rgb(241, 239, 239);
+        }
+        .main-title {
+            text-align: center;
+        }
+        /* 入力バーに関するCSS */
+        #result {
+            width: 278px;
+            margin-left: 8px;
+            border: solid 1px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        /* ボタンに関するCSS */
+        input {
+            display: inline-block;
+            height: 40px;
+            width: 50px;
+            width: 20%;
+            margin-bottom: 10px;
+        }
+        #large-btn {
+            width: 45%;
+        }
+        .first-row {
+            display: flex;
+            justify-content: space-around;
+        }
+        .second-row {
+            display: flex;
+            justify-content: space-around;
+        }
+        .third-row {
+            display: flex;
+            justify-content: space-around;
+        }
+        .fourth-row {
+            display: flex;
+            justify-content: space-around;
+        }
+        .fifth-row {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">
+            <h1>電卓</h1>
+        </div>
+        <div class="calculator">
+            <div class="calculation">
+                <input id="result" value="">
+            </div>      
+            <div class="row">
+                <div class="first-row">
+                    <input id="large-btn" value="AC" onclick="del()" type="button">
+                    <input value="%" onclick="display(this)" type="button">
+                    <input value="/" onclick="display(this)" type="button">
+                </div>
+                <div class="second-row">
+                    <input value="7" onclick="display(this)" type="button">
+                    <input value="8" onclick="display(this)" type="button">
+                    <input value="9" onclick="display(this)" type="button">
+                    <input value="*" onclick="display(this)" type="button">
+                </div>
+                <div class="third-row">
+                    <input value="4" onclick="display(this)" type="button">
+                    <input value="5" onclick="display(this)" type="button">
+                    <input value="6" onclick="display(this)" type="button">
+                    <input value="-" onclick="display(this)" type="button">
+                </div>
+                <div class="fourth-row">
+                    <input value="1" onclick="display(this)" type="button">
+                    <input value="2" onclick="display(this)" type="button">
+                    <input value="3" onclick="display(this)" type="button">
+                    <input value="+" onclick="display(this)" type="button">
+                </div>
+                <div class="fifth-row">
+                    <input id="large-btn" value="0" onclick="display(this)" type="button">
+                    <input value="." onclick="display(this)" type="button">
+                    <input value="=" onclick="calculate(this)" type="button">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var result = document.getElementById('result');
+        function del() {
+            result.value = '';
+        }
+        function display(element) {
+            result.value = result.value + element.value;
+        }
+        function calculate() {
+            result.value = Function('return ('+result.value+');')();
+        }
+    </script>
+</body>
+</html>
